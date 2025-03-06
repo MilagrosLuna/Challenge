@@ -18,6 +18,16 @@ export default async function handler(req, res) {
 
     try {
       const { nombre_completo, dni, fecha_nacimiento, es_desarrollador, descripcion } = req.body;
+      
+      const [existingEmployees] = await pool.query(
+        "SELECT id FROM empleados WHERE dni = ?",
+        [dni]
+      );
+
+      if (existingEmployees.length > 0) {
+        return res.status(400).json({ error: "El DNI ya está registrado." });
+      }
+
       const query = `INSERT INTO empleados (nombre_completo, dni, fecha_nacimiento, es_desarrollador, descripcion) VALUES (?, ?, ?, ?, ?)`;
       const values = [nombre_completo, dni, fecha_nacimiento, es_desarrollador, descripcion];
 
