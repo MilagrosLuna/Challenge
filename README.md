@@ -1,40 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 📌 CRUD de Alta de Personal con Next.js
 
-## Getting Started
+Este proyecto es una aplicación CRUD para gestionar empleados, desarrollado con Next.js y utilizando una API REST con MySQL como base de datos.
 
-First, run the development server:
+## 📂 Estructura del Proyecto
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Frontend:** Next.js (React, Tailwind CSS)
+- **Backend:** API REST con Next.js
+- **Base de datos:** MySQL
+
+---
+
+## 🚀 Instalación y Configuración
+
+### **1️⃣ Clonar el repositorio**
+```sh
+ git clone 
+ cd 
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### **2️⃣ Instalar dependencias**
+```sh
+ npm install
+```
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### **3️⃣ Configurar variables de entorno**
+Crea un archivo `.env.local` en la raíz del proyecto y añade las siguientes variables:
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+```env
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=
+DB_NAME=bd_empleados
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+### **4️⃣ Configurar la base de datos**
+Para que la aplicación funcione correctamente, es necesario importar la base de datos en el sistema de gestión de MySQL que estés utilizando (MySQL Workbench, phpMyAdmin, línea de comandos, etc.) o crearla manualmente con el siguiente esquema:
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sql
+CREATE DATABASE bd_empleados;
 
-## Learn More
+USE bd_empleados;
 
-To learn more about Next.js, take a look at the following resources:
+CREATE TABLE empleados (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre_completo VARCHAR(100) NOT NULL,
+  dni VARCHAR(20) NOT NULL UNIQUE,
+  fecha_nacimiento DATE NOT NULL,
+  es_desarrollador BOOLEAN NOT NULL,
+  descripcion TEXT
+);
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+### **5️⃣ Iniciar el servidor de desarrollo**
+```sh
+ npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+La aplicación estará disponible en `http://localhost:3000`.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📌 Endpoints de la API
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+### **GET /api/empleados**
+Obtiene la lista de todos los empleados.
+
+### **POST /api/empleados**
+Crea un nuevo empleado.
+
+**Ejemplo de body:**
+```json
+{
+  "nombre_completo": "Juan Pérez",
+  "dni": "12345678",
+  "fecha_nacimiento": "1990-05-10",
+  "es_desarrollador": true,
+  "descripcion": "Desarrollador Full Stack"
+}
+```
+
+### **PUT /api/empleados**
+Actualiza un empleado existente.
+
+### **DELETE /api/empleados**
+Elimina un empleado por su ID.
+
+---
+
+## 📌 Estimación de tareas
+
+| Tarea | Tiempo estimado |
+|-----------------|----------------|
+| Configuración del entorno y base de datos | 30 minutos |
+| Desarrollo de API REST | 1 hora |
+| Creación del componentes | 50 minutos |
+| Pruebas y documentación | < 30 minutos |
+
+---
+
+📌 **Autor:** [Milagros Luna]  
+
