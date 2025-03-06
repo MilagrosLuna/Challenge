@@ -14,8 +14,8 @@ Este proyecto es una aplicación CRUD para gestionar empleados, desarrollado con
 
 ### **1️⃣ Clonar el repositorio**
 ```sh
- git clone 
- cd 
+ git clone https://github.com/MilagrosLuna/Challenge.git
+ cd Challenge
 ```
 
 ### **2️⃣ Instalar dependencias**
@@ -93,8 +93,8 @@ Elimina un empleado por su ID.
 |-----------------|----------------|
 | Configuración del entorno y base de datos | 30 minutos |
 | Desarrollo de API REST | 1 hora |
-| Creación del componentes | 50 minutos |
-| Pruebas y documentación | < 30 minutos |
+| Creación del componentes | 1 hora |
+| Pruebas y documentación | 1 hora |
 
 ---
 
