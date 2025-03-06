@@ -28,8 +28,8 @@ Crea un archivo `.env.local` en la raíz del proyecto y añade las siguientes va
 
 ```env
 DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=
+DB_USER=root  # Cambiar según tu sistema de gestión
+DB_PASSWORD=  # Si usas phpMyAdmin en local, suele estar vacío
 DB_NAME=bd_empleados
 ```
 
